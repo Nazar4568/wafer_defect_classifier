@@ -9,7 +9,7 @@ class DefectClassifier(nn.Module):
         self.relu =  nn.ReLU()
         self.pooling = nn.MaxPool2d(kernel_size=2, stride=2)
 
-        self.conv1 = nn.Conv2d(in_channels=16, out_channels = 32, kernel_size=3,padding=1)
+        self.conv2 = nn.Conv2d(in_channels=16, out_channels = 32, kernel_size=3,padding=1)
         self.flatten = nn.Flatten()
 
         self.fc = nn.Linear(in_features=32 * 56 * 56, out_features=6)
