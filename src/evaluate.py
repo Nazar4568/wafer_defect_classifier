@@ -43,7 +43,7 @@ def evaluate_model():
     plt.xlabel('Predicted')
     plt.ylabel('Actual')
     plt.title('Confusion Matrix')
-    plt.show()
+    plt.savefig('confusion_matrix.png')
 
 if __name__ == "__main__":
     evaluate_model()
