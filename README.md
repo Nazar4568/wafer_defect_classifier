@@ -6,7 +6,7 @@ Metrics & Plots: Scikit-learn, Matplotlib, Seaborn
 
 Deployment: Docker
 
-
+##Discription
 This project uses a custom PyTorch Convolutional Neural Network (CNN) to classify surface defects on semiconductor wafers. 
 
 To make testing easy and avoid any issues, the entire evaluation pipeline is packaged into a Docker container.
