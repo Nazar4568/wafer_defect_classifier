@@ -40,6 +40,8 @@ Open your terminal in the project root and run this command to pull the pre-buil
 docker run -v "$(pwd)/data:/app/data" nazariifilin/defect-ai:latest
 
 Or if you want to build the Docker image yourself:
+
 docker build -t defect-ai .
+
 docker run -v "$(pwd)/data:/app/data" defect-ai
 
