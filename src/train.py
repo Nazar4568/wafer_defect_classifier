@@ -57,6 +57,12 @@ def train_model():
         accuracy = (correct_predictions / total_samples) * 100
         print(
             f"Epoch [{epoch + 1}/{epochs}] - Loss: {avg_loss:.4f} | Accuracy: {accuracy:.2f}%")
+        save_path = os.path.join(base_dir, '..', 'models', 'defect_model_weights.pth')
+
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+
+        torch.save(model.state_dict(), save_path)
+        print(f"Model weights saved successfully to {save_path}")
 
 if __name__ == "__main__":
     train_model()
