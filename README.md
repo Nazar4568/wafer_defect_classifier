@@ -39,7 +39,7 @@ Tested on a validation set of 360 images (60 per class).
 
 **1. Clone the repository**
 `bash
-git clone <твоя-ссылка-на-github-репозиторий>
+git clone https://github.com/Nazar4568/wafer_defect_classifier.git
 cd wafer_defect_classifier
 `
 
