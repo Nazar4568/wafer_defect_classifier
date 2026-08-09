@@ -3,6 +3,5 @@
 __pycache__/
 .DS_Store
 data/
-models/
 venv/
 *.pyc

@@ -28,7 +28,7 @@ def predict_defect(request: Request, file: UploadFile = File(...), db: Session =
     try:
         image_bytes = file.file.read()
         tensor = process_image(image_bytes)
-        file_extension = file.filename.split(".")[-1]
+        _, file_extension = os.path.splitext(file.filename)
         safe_filename = f"{uuid.uuid4()}.{file_extension}"
         file_path = os.path.join(UPLOAD_DIR, safe_filename)
         with open(file_path, "wb") as buffer:
