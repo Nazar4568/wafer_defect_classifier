@@ -1,19 +1,25 @@
-# Wafer Defect Classifier
+# Wafer Defect Inspection API
 
 ## Description
-This project uses a custom PyTorch Convolutional Neural Network (CNN) to classify surface defects on semiconductor wafers. 
+This project is an end-to-end Machine Learning microservice built to classify surface defects on semiconductor wafers. 
+Initially developed as a pure ML training pipeline, it has been expanded into a fully functional REST API. The system processes incoming electron microscope images through a custom PyTorch Convolutional Neural Network (CNN), saves the images locally, and logs all prediction results (including confidence scores and timestamps) into a PostgreSQL database.
 
-To make testing easy and avoid any issues, the entire evaluation pipeline is packaged into a Docker container.
+The entire system, including the API and the database, is containerized for seamless deployment.
 
 ## Tech Stack
-ML Framework: PyTorch, Torchvision
+* **Backend:** FastAPI, Pydantic, Python 3
+* **Database:** PostgreSQL, SQLAlchemy 2.0 (ORM), psycopg2
+* **Machine Learning:** PyTorch, Torchvision
+* **Deployment:** Docker, Docker Compose
+* **Metrics & Evaluation:** Scikit-learn, Matplotlib, Seaborn
 
-Metrics & Plots: Scikit-learn, Matplotlib, Seaborn
-
-Deployment: Docker
+## Features
+* **Real-time Inference:** REST API endpoint that accepts image uploads and returns defect classifications instantly.
+* **Persistent Storage:** Images are securely saved with UUIDs, and all inspection metadata is logged into a relational database.
+* **Interactive Documentation:** Out-of-the-box Swagger UI for easy API testing and exploration.
 
 ## What it detects
-The model classifies electron microscope images into 6 types of anomalies:
+The CNN classifies images into 6 types of anomalies based on the NEU Surface Defect Database:
 `crazing`, `inclusion`, `patches`, `pitted_surface`, `rolled-in_scale`, and `scratches`.
 
 ## Model Results
@@ -31,22 +37,30 @@ Tested on a validation set of 360 images (60 per class).
 
 ## How to run it
 
-**1. Get the Dataset**
+**1. Clone the repository**
+`bash
+git clone <твоя-ссылка-на-github-репозиторий>
+cd wafer_defect_classifier
+`
 
-Download the NEU Surface Defect Database from [Kaggle](https://www.kaggle.com/datasets/kaustubhdikshit/neu-surface-defect-database).
-Extract it and place it in the root of the project so the path looks like this: `data/validation/crazing/...`
+**2. Start the Microservice (API + PostgreSQL)**
+Make sure you have Docker Desktop installed and running. Run the following command in the project root:
+`bash
+docker-compose up -d --build
+`
+*This command will automatically download PostgreSQL, install all dependencies, build the API image, and start both containers. The database tables are generated automatically.*
 
-**2. Run the Docker Container**
+**3. Test the API**
+Once the containers are running, navigate to:
+👉 **[http://localhost:8000/docs](http://localhost:8000/docs)**
 
-Open your terminal in the project root and run this command to pull the pre-built image and test the model on your local data:
-```bash
-docker run -v "$(pwd)/data:/app/data" nazariifilin/defect-ai:latest 
-```
-Or if you want to build the Docker image yourself:
-```bash
-docker build -t defect-ai .
-```
+From the Swagger UI:
+1. Click on the `POST /api/v1/predict` route.
+2. Click **Try it out**.
+3. Upload any defect image and hit **Execute**.
 
-```bash
-docker run -v "$(pwd)/data:/app/data" defect-ai
-```
+**4. Stop the Microservice**
+To safely shut down the containers without losing database records:
+`bash
+docker-compose down
+`
