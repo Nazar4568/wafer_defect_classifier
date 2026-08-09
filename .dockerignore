@@ -3,3 +3,4 @@ venv/
 .git/
 .idea/
 __pycache__/
+media/

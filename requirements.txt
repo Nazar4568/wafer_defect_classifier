@@ -1,5 +1,12 @@
-torch
-torchvision
-scikit-learn
-matplotlib
-seaborn
+torch~=2.11.0
+torchvision~=0.26.0
+scikit-learn~=1.8.0
+matplotlib~=3.10.9
+seaborn~=0.13.2
+sqlalchemy~=2.0.51
+fastapi
+pydantic~=2.13.4
+uvicorn
+python-multipart
+Pillow
+psycopg2-binary

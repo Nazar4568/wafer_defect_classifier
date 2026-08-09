@@ -1,7 +1,7 @@
-from model import DefectClassifier
+from src.model import DefectClassifier
 import torch
 from sklearn.metrics import classification_report, confusion_matrix
-from data_loader import get_data_loaders
+from src.data_loader import get_data_loaders
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os

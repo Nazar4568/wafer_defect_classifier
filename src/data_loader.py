@@ -1,7 +1,6 @@
 import os
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
-
 def get_data_loaders(data_dir, batch_size=32):
 
     data_transforms = transforms.Compose([
