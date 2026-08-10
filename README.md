@@ -48,9 +48,9 @@ cd wafer_defect_classifier
 
 **2. Start the Microservice (API + PostgreSQL)**
 Make sure you have Docker Desktop installed and running. Run the following command in the project root:
-`bash
+```bash
 docker-compose up -d --build
-`
+```
 *This command will automatically download PostgreSQL, install all dependencies, build the API image, and start both containers. The database tables are generated automatically.*
 
 **3. Test the API**
@@ -64,6 +64,6 @@ From the Swagger UI:
 
 **4. Stop the Microservice**
 To safely shut down the containers without losing database records:
-`bash
+```bash
 docker-compose down
-`
+```
