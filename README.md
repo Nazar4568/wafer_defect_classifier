@@ -38,13 +38,13 @@ Tested on a validation set of 360 images (60 per class).
 ## How to run it
 
 **1. Clone the repository**
-`bash
+```bash
 git clone https://github.com/Nazar4568/wafer_defect_classifier.git
-`
+```
 
-`bash
+```bash
 cd wafer_defect_classifier
-`
+```
 
 **2. Start the Microservice (API + PostgreSQL)**
 Make sure you have Docker Desktop installed and running. Run the following command in the project root:
