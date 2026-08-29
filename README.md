@@ -21,6 +21,7 @@ The entire system, including the API and the database, is containerized for seam
 ## What it detects
 The CNN classifies images into 6 types of anomalies based on the NEU Surface Defect Database:
 `crazing`, `inclusion`, `patches`, `pitted_surface`, `rolled-in_scale`, and `scratches`.
+Photos taken from the NEU Surface Defect Database from [Kaggle](https://www.kaggle.com/datasets/kaustubhdikshit/neu-surface-defect-database).
 
 ## Model Results
 Tested on a validation set of 360 images (60 per class).
